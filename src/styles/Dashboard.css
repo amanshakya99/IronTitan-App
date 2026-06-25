@@ -1,0 +1,15 @@
+.dashboard {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding-bottom: 80px;
+}
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 12px 0;
+}

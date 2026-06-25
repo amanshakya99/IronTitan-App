@@ -1,0 +1,46 @@
+.streak-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  flex: 1;
+}
+
+.streak-card__label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.streak-card__number {
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1;
+  color: var(--accent-red);
+}
+
+.streak-card__sub {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.streak-card__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0;
+}
+
+.streak-card__best-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.streak-card__best-val {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
