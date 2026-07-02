@@ -1,0 +1,57 @@
+.workouts-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  flex: 1;
+}
+
+.workouts-card__label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.workouts-card__number {
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1;
+  color: var(--accent-blue);
+}
+
+.workouts-card__sub {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.workouts-card__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0;
+}
+
+.workouts-card__ring-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.workouts-card__ring-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.workouts-card__ring-status {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.workouts-card__ring-goal {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
