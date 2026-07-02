@@ -15,6 +15,7 @@ export default function WorkoutsCard() {
       if (!user) return
 
       const count = await getMonthlyWorkoutCount(user.id)
+      // console.log ('Monthly workout count:', count)
       setTotal(count || 0)
     }
     fetchWorkouts()
@@ -69,4 +70,4 @@ export default function WorkoutsCard() {
       </div>
     </div>
   )
-}, count
+}

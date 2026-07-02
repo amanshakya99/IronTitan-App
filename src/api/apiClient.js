@@ -40,7 +40,7 @@ function mockRoute(endpoint) {
   if (endpoint.includes('/workouts/count')) {
     return getTotalWorkoutCount()
   }
-  if (endpoint.includes('/today-workout')) {
+  if (endpoint.includes('/today-routine')) {
     return getTodaysRoutine()
   }
 

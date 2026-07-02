@@ -37,6 +37,7 @@ export default function TotalWorkoutsCard() {
       else setDisplayNum(target)
     }
 
+    
     animeRef.current = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(animeRef.current)
   }, [stats.total])

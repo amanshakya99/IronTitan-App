@@ -35,7 +35,7 @@ export default function TodayWorkoutCard() {
         </span>
         <span className="today-card__meta-divider">·</span>
         <span className="today-card__meta-item">
-          ⏱ {workout.estimatedMinutes} min
+          ⏱ {workout.estimatedTime} min
         </span>
       </div>
 
