@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { supabase } from '../../lib/supabase'
+import { getMonthlyWorkoutCount } from '../../api/workoutApi'
 import '../../styles/dashboard/WorkoutsCard.css'
 
 export default function WorkoutsCard() {
@@ -13,32 +14,23 @@ export default function WorkoutsCard() {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) return
 
-      const start = new Date()
-      start.setDate(1)
-      start.setHours(0, 0, 0, 0)
-
-      const { count } = await supabase
-        .from('workouts')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', user.id)
-        .gte('completed_at', start.toISOString())
-
+      const count = await getMonthlyWorkoutCount(user.id)
       setTotal(count || 0)
     }
     fetchWorkouts()
   }, [])
 
-  // Animate counter
   useEffect(() => {
-    if (!total) return
+    if (!total) { setDisplayNum(0); return }
+    const target = total
     let start = null
 
     function animate(ts) {
       if (!start) start = ts
       const progress = Math.min((ts - start) / 800, 1)
-      setDisplayNum(Math.floor(progress * total))
+      setDisplayNum(Math.floor(progress * target))
       if (progress < 1) animRef.current = requestAnimationFrame(animate)
-      else setDisplayNum(total)
+      else setDisplayNum(target)
     }
 
     animRef.current = requestAnimationFrame(animate)
@@ -77,4 +69,4 @@ export default function WorkoutsCard() {
       </div>
     </div>
   )
-}
+}, count
