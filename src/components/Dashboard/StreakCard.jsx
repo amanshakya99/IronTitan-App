@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { supabase } from '../../lib/supabase'
+import { getWorkoutDates } from '../../api/workoutApi'
 import '../../styles/dashboard/StreakCard.css'
 
 function calculateStreak(dates) {
@@ -20,7 +21,7 @@ function calculateStreak(dates) {
     current = 1
     for (let i = 1; i < unique.length; i++) {
       const diff = (new Date(unique[i - 1]) - new Date(unique[i])) / 86400000
-      if (diff === 1) { current++; temp++ }
+      if (diff === 1) current++
       else break
     }
   }
@@ -46,21 +47,14 @@ export default function StreakCard() {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) return
 
-      const { data } = await supabase
-        .from('workouts')
-        .select('completed_at')
-        .eq('user_id', user.id)
-
-      const dates = data?.map(w => w.completed_at) || []
-      const result = calculateStreak(dates)
-      setStreak(result)
+      const dates = await getWorkoutDates(user.id)
+      setStreak(calculateStreak(dates))
     }
     fetchStreak()
   }, [])
 
-  // Animate counter
   useEffect(() => {
-    if (!streak.current) return
+    if (!streak.current) { setDisplayNum(0); return }
     const target = streak.current
     let start = null
 
@@ -78,12 +72,18 @@ export default function StreakCard() {
 
   return (
     <div className="streak-card">
-      <div className="streak-card__label">Streak 🔥</div>
-      <div className="streak-card__number">{displayNum}</div>
-      <div className="streak-card__sub">days in a row</div>
-      <div className="streak-card__divider" />
-      <div className="streak-card__best-label">Best streak</div>
-      <div className="streak-card__best-val">{streak.best} days</div>
+      <div className="streak-card__header">
+        <div className="streak-card__icon">🔥</div>
+        <span className="streak-card__label">Streak</span>
+      </div>
+      <div className="streak-card__number">
+        {displayNum}
+        <span className="streak-card__sub">days</span>
+      </div>
+      <div className="streak-card__footer">
+        <span className="streak-card__footer-icon">⚡</span>
+        Best: {streak.best} days
+      </div>
     </div>
   )
 }
