@@ -1,0 +1,115 @@
+.weekly-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.weekly-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weekly-card__label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.weekly-card__goal {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.weekly-card__bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 6px;
+  height: 80px;
+}
+
+.weekly-card__bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  gap: 4px;
+}
+
+.weekly-card__bar-count {
+  font-size: 9px;
+  color: var(--text-secondary);
+  height: 12px;
+}
+
+.weekly-card__bar-track {
+  flex: 1;
+  width: 100%;
+  background: var(--bg-raised);
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.weekly-card__bar-fill {
+  width: 100%;
+  background: var(--accent-red);
+  border-radius: 4px;
+  transition: height 0.8s ease;
+  min-height: 0;
+}
+
+.weekly-card__bar-fill--empty {
+  background: transparent;
+}
+
+.weekly-card__bar-label {
+  font-size: 9px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.weekly-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.weekly-card__progress-track {
+  height: 4px;
+  background: var(--bg-raised);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.weekly-card__progress-fill {
+  height: 100%;
+  background: var(--accent-blue);
+  border-radius: 2px;
+}
+
+.weekly-card__footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weekly-card__status {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.weekly-card__goal-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+}

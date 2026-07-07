@@ -64,3 +64,13 @@ export const MOCK_ROUTINES = [
     ]
 //if no more routines left, shows "No more routines available"
     export const MOCK_LAST_COMPLETED_ROUTINE_ID = 'routine-1'
+
+    export const MOCK_WEEKLY_BREAKDOWN = [
+  { day: 'Mon', count: 3 },
+  { day: 'Tue', count: 1 },
+  { day: 'Wed', count: 4 },
+  { day: 'Thu', count: 0 },
+  { day: 'Fri', count: 2 },
+  { day: 'Sat', count: 0 },
+  { day: 'Sun', count: 0 },
+]

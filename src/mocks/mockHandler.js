@@ -5,7 +5,8 @@ import {
   MOCK_MONTHLY_WORKOUT_COUNT,
   MOCK_TOTAL_WORKOUT_COUNT,
   MOCK_ROUTINES,
-  MOCK_LAST_COMPLETED_ROUTINE_ID
+  MOCK_LAST_COMPLETED_ROUTINE_ID,
+  MOCK_WEEKLY_BREAKDOWN,
 } from './mockDataApi'
 
 const delay = (ms = 300) => new Promise(res => setTimeout(res, ms))
@@ -49,4 +50,9 @@ export async function getTodaysRoutine() {
   const lastCompletedIndex = MOCK_ROUTINES.findIndex(routine => routine.id === MOCK_LAST_COMPLETED_ROUTINE_ID)
   const nextIndex = (lastCompletedIndex + 1) % MOCK_ROUTINES.length
   return MOCK_ROUTINES[nextIndex]
+}
+
+export async function getWeeklyBreakdown(userId) {
+  await delay()
+  return MOCK_WEEKLY_BREAKDOWN
 }

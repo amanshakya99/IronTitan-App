@@ -26,3 +26,7 @@ export async function getTodaysRoutine(userId) {
   return res
 }
 
+export async function getWeeklyBreakdown(userId) {
+  const res = await apiRequest(`/users/${userId}/workouts/weekly-breakdown`)
+  return res
+}
