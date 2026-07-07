@@ -3,6 +3,7 @@ import {
   getMonthlyWorkoutCount,
   getTotalWorkoutCount,
   getTodaysRoutine,
+  getWeeklyBreakdown,
 } from '../mocks/mockHandler' // adjust path to match your actual structure
 
 export const USE_MOCK = true;
@@ -42,6 +43,9 @@ function mockRoute(endpoint) {
   }
   if (endpoint.includes('/today-routine')) {
     return getTodaysRoutine()
+  }
+  if (endpoint.includes('/weekly-breakdown')){
+    return getWeeklyBreakdown()
   }
 
   throw new Error(`No mock route matched for endpoint: ${endpoint}`)
