@@ -58,6 +58,7 @@ coverage/
 
 # Vite cache
 vite.svg
+.vite
 
 # =========================
 # TypeScript
