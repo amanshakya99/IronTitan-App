@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
-import { supabase } from '../../lib/supabase'
-import { getMonthlyWorkoutCount, getTotalWorkoutCount } from '../../api/workoutApi'
+import {
+  getCurrentUser,
+  getMonthlyWorkoutCount,
+  getTotalWorkoutCount,
+} from '../../api'
 import '../../styles/dashboard/StreakCard.css'
 
 export default function TotalWorkoutsCard() {
@@ -8,21 +11,22 @@ export default function TotalWorkoutsCard() {
   const [displayNum, setDisplayNum] = useState(0)
   const animeRef = useRef(null)
 
-  useEffect(() => {
-    async function fetchStats() {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (!user) return
-
-      const [total, thisMonth] = await Promise.all([
-        getTotalWorkoutCount(user.id),
-        getMonthlyWorkoutCount(user.id)
-      ])
-
-      setStats({ total, thisMonth })
+useEffect(() => {
+  async function fetchStats() {
+    const user = await getCurrentUser()
+    if (!user) {
+      return
     }
 
-    fetchStats()
-  }, [])
+    const total = await getTotalWorkoutCount(user.id)
+
+    const thisMonth = await getMonthlyWorkoutCount(user.id)
+
+    setStats({ total, thisMonth })
+  }
+
+  fetchStats()
+}, [])
 
   useEffect(() => {
     if (!stats.total) { setDisplayNum (0) ; return }

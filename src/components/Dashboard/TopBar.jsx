@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../lib/supabase'
-
+import { getCurrentUser } from '../../api'
 export default function TopBar() {
   const [username, setUsername] = useState('')
   const [initials, setInitials] = useState('U')
 
   useEffect(() => {
     async function getUser() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const user = await getCurrentUser()
       if (user) {
         const name = user.user_metadata?.full_name || user.email
         setUsername(name.split('@')[0])

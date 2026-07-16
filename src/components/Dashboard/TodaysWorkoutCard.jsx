@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { supabase } from '../../lib/supabase'
-import { getTodaysRoutine } from '../../api/workoutApi'
+import {
+  getTodaysRoutine,
+  getCurrentUser,
+} from '../../api'
+
 import '../../styles/dashboard/TodayWorkoutCard.css'
 
 export default function TodayWorkoutCard() {
@@ -10,7 +13,7 @@ export default function TodayWorkoutCard() {
 
   useEffect(() => {
     async function fetchTodayWorkout() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const user = await getCurrentUser()
       if (!user) return
       const data = await getTodaysRoutine(user.id)
       setWorkout(data)

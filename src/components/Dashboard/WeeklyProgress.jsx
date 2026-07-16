@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../lib/supabase'
-import { getWeeklyBreakdown, getTotalWorkoutCount } from '../../api/workOutApi'
+import {
+  getCurrentUser,
+  getWeeklyBreakdown,
+  getTotalWorkoutCount,
+} from '../../api'
 import '../../styles/dashboard/WeeklyProgress.css'
 
 export default function WeeklyProgress(){
@@ -10,7 +13,7 @@ export default function WeeklyProgress(){
 
     useEffect(() => {
         async function fetchWorkouts(){
-            const {data: { user } } = await supabase.auth.getUser()
+            const user = await getCurrentUser()
             if (!user) return
 
             const [ count , weekly ] = await Promise.all([

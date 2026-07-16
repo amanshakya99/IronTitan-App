@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from 'react'
-import { supabase } from '../../lib/supabase'
-import { getWorkoutDates } from '../../api/workoutApi'
+import {
+  getCurrentUser,
+  getWorkoutDates,
+} from '../../api'
 import '../../styles/dashboard/StreakCard.css'
 
 function calculateStreak(dates) {
@@ -44,7 +46,7 @@ export default function StreakCard() {
 
   useEffect(() => {
     async function fetchStreak() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const user = await getCurrentUser()
       if (!user) return
 
       const dates = await getWorkoutDates(user.id)
