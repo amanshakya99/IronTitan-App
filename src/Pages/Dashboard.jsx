@@ -7,6 +7,7 @@ import StreakCard from '../components/Dashboard/StreakCard'
 import TotalWorkoutsCard from '../components/Dashboard/TotalWorkout'
 import WorkoutsCard from '../components/dashboard/WorkoutsCard'
 import TodaysWorkoutCard from '../components/Dashboard/TodaysWorkoutCard'
+import WeeklyProgress from '../components/Dashboard/WeeklyProgress'
 
 export default function Dashboard() {
   return (
@@ -19,9 +20,9 @@ export default function Dashboard() {
           <StreakCard />
           <TotalWorkoutsCard />
         </div>
-
         <TodaysWorkoutCard />
         <WorkoutsCard />
+        <WeeklyProgress />
       </main>
       <BottomNav />
     </div>
