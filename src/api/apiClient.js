@@ -1,5 +1,5 @@
 import {
-  getUserWorkoutDate,
+  getWorkoutDates,
   getMonthlyWorkoutCount,
   getTotalWorkoutCount,
   getTodaysRoutine,
@@ -33,7 +33,7 @@ export async function apiRequest(endpoint, options = {}) {
 
 function mockRoute(endpoint) {
   if (endpoint.includes('/workouts?fields=completed_at')) {
-    return getUserWorkoutDate()
+    return getWorkoutDates()
   }
   if (endpoint.includes('/workouts/count?from=')) {
     return getMonthlyWorkoutCount()

@@ -27,9 +27,9 @@ export async function getUserStats() {
 
 //-Workout ------------------------
 
-export async function getUserWorkoutDate() {
+export async function getWorkoutDates() {
   await delay()
-  return MOCK_USER_WORKOUT_DATE
+  return MOCK_USER_WORKOUT_DATE.map(w => w.completed_at)
 }
 
 //-Monthly Workout Count ------------------------

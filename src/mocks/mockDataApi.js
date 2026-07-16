@@ -18,9 +18,9 @@ function daysAgo(n){
     d.setDate(d.getDate() - n);
     return d.toISOString();
 }
-export const MOCK_TOTAL_WORKOUT_COUNT = {count: 42}
+export const MOCK_TOTAL_WORKOUT_COUNT = 42
 
-export const MOCK_MONTHLY_WORKOUT_COUNT = {count: 10}
+export const MOCK_MONTHLY_WORKOUT_COUNT = 10
 
 export const MOCK_USER_WORKOUT_DATE = [
    {completed_at: daysAgo(0)},
