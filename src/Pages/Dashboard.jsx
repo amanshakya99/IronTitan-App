@@ -8,6 +8,7 @@ import TotalWorkoutsCard from '../components/Dashboard/TotalWorkout'
 import WorkoutsCard from '../components/dashboard/WorkoutsCard'
 import TodaysWorkoutCard from '../components/Dashboard/TodaysWorkoutCard'
 import WeeklyProgress from '../components/Dashboard/WeeklyProgress'
+import MusicCard from '../components/Dashboard/MusicCard'
 
 export default function Dashboard() {
   return (
@@ -15,6 +16,7 @@ export default function Dashboard() {
       <TopBar />
       <main className="dashboard-main">
         <LevelCard />
+        <MusicCard />
 
         <div className="dashboard-row">
           <StreakCard />
